@@ -1,6 +1,6 @@
 <?php
 
-define('API_KEY','209348445:AAEn-s3wsroGDwhG2P4PsJua9GsaJO5X4gY');
+define('API_KEY','209348445:AAHlPpBHT6BnDQpLhLS1Z-NzxofVjBVHAo8');
 //----######------
 function makereq($method,$datas=[]){
     $url = "https://api.telegram.org/bot".API_KEY."/".$method;
@@ -229,7 +229,7 @@ if($chat_id == $admin){
 	}
 }
  
-	elseif($textmessage == 'stats' && $chat_id == $admin)
+            elseif($textmessage == 'stats' && $chat_id == $admin)
 	{
 		$txtt = file_get_contents('member.txt');
 		$membersidd= explode("\n",$txtt);
@@ -238,7 +238,7 @@ if($chat_id == $admin){
 sendmessage($chat_id,"لیست اعضای ربات : $mmemcount");
 }
 }
-            elseif ($textmessage =="sendtoall"  && $chat_id == $admin | $booleans[0]=="false") {
+            elseif($textmessage =="sendtoall"  && $chat_id == $admin | $booleans[0]=="false") {
 	{
           sendmessage($chat_id,"لطفا پیام خودرا ارسال کنید");
 	}
