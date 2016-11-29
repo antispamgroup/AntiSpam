@@ -235,10 +235,10 @@ if($chat_id == $admin){
 		$membersidd= explode("\n",$txtt);
 		$mmemcount = count($membersidd) -1;
 {
-sendmessage($chat_id,"تعداد کاربران ربات : $mmemcount");
+sendmessage($chat_id,"لیست اعضای ربات : $mmemcount");
 }
 }
-        elseif ($textmessage =="sendtoall"  && $chat_id == $admin | $booleans[0]=="false") {
+            elseif ($textmessage =="sendtoall"  && $chat_id == $admin | $booleans[0]=="false") {
 	{
           sendmessage($chat_id,"لطفا پیام خودرا ارسال کنید");
 	}
@@ -264,4 +264,11 @@ sendmessage($chat_id,"تعداد کاربران ربات : $mmemcount");
          $addd = "false";
     	file_put_contents('booleans.txt',$addd);
     	}
+ elseif($textmessage == 'پاک کردن لیست بلاک شده ها')
+ if($chat_id == $admin){
+ {
+ file_put_contents('banlist.txt',$chat_id);
+ Sendmessage($chat_id,"test");
+ }
+}
 ?>
