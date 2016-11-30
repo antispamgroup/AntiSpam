@@ -1,6 +1,6 @@
 <?php
 
-define('API_KEY','محل توکن شما');
+define('API_KEY','209348445:AAGxGOClD9_i-f4EaGYeoQkqr6yBC2e9K7c');
 //----######------
 function makereq($method,$datas=[]){
     $url = "https://api.telegram.org/bot".API_KEY."/".$method;
@@ -193,7 +193,7 @@ var_dump(makereq('sendMessage',[
             ]
         ])
     ]));
-  
+ 
 elseif($textmessage == 'TeleBlasterBot')
   {
   	Sendmessage($chat_id,"خالی");
@@ -222,53 +222,48 @@ elseif($textmessage == 'FeedBack')
 
 elseif($textmessage == 'help')
 if($chat_id == $admin){
-	{
-		Sendmessage($chat_id,"stats : نماش تعداد کاربران
+{
+Sendmessage($chat_id,"stats : نماش تعداد کاربران
    
-    sendtoall : ارسال کردن پیام به تمام کاربران ربات");
-	}
+sendtoall : ارسال کردن پیام به تمام کاربران ربات");
+}
 }
  
-            elseif($textmessage == 'stats' && $chat_id == $admin)
-	{
-		$txtt = file_get_contents('member.txt');
-		$membersidd= explode("\n",$txtt);
-		$mmemcount = count($membersidd) -1;
+elseif($textmessage == 'stats' && $chat_id == $admin)
 {
-sendmessage($chat_id,"لیست اعضای ربات : $mmemcount");
+$txtt = file_get_contents('member.txt');
+$membersidd= explode("\n",$txtt);
+$mmemcount = count($membersidd) -1;
+{
+sendmessage($chat_id,"تعداد کاربران ربات : $mmemcount");
 }
 }
-            elseif($textmessage =="sendtoall"  && $chat_id == $admin | $booleans[0]=="false") {
-	{
-          sendmessage($chat_id,"لطفا پیام خودرا ارسال کنید");
-	}
-      $boolean = file_get_contents('booleans.txt');
-		  $booleans= explode("\n",$boolean);
-	  	$addd = file_get_contents('banlist.txt');
-	  	$addd = "true";
-    	file_put_contents('booleans.txt',$addd);
+        
+elseif($textmessage =="sendtoall"  && $chat_id == $admin | $booleans[0]=="false") {
+{
+sendmessage($chat_id,"لطفا پیام خودرا ارسال کنید");
+}
+$boolean = file_get_contents('booleans.txt');
+$booleans= explode("\n",$boolean);
+$addd = file_get_contents('banlist.txt');
+$addd = "true";
+file_put_contents('booleans.txt',$addd);
 
-    }
-      elseif($chat_id == $admin && $booleans[0] == "true") {
-    $texttoall = $textmessage;
-		$ttxtt = file_get_contents('member.txt');
-		$membersidd= explode("\n",$ttxtt);
-		for($y=0;$y<count($membersidd);$y++){
-			sendmessage($membersidd[$y],"$texttoall");
+}
+elseif($chat_id == $admin && $booleans[0] == "true") {
+$texttoall = $textmessage;
+$ttxtt = file_get_contents('member.txt');
+$membersidd= explode("\n",$ttxtt);
+for($y=0;$y<count($membersidd);$y++){
+sendmessage($membersidd[$y],"$texttoall");
 
-		}
-		$memcout = count($membersidd)-1;
-	 	{
-	 	Sendmessage($chat_id,"پیغام شما به $memcout مخاطب ارسال شد.");
-	 	}
-         $addd = "false";
-    	file_put_contents('booleans.txt',$addd);
-    	}
- elseif($textmessage == 'پاک کردن لیست بلاک شده ها')
- if($chat_id == $admin){
- {
- file_put_contents('banlist.txt',$chat_id);
- Sendmessage($chat_id,"test");
- }
+}
+memcout = count($membersidd)-1;
+{
+Sendmessage($chat_id,"پیغام شما به $memcout مخاطب ارسال شد.");
+}
+$addd = "false";
+file_put_contents('booleans.txt',$addd);
+}
 }
 ?>
